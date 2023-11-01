@@ -106,7 +106,7 @@ export default {
   login: {
     welcome: '欢迎使用本系统',
     message: '开箱即用的中后台管理系统',
-    username: '用户名',
+    email: '电邮',
     password: '密码',
     register: '注册',
     checkPassword: '确认密码',
@@ -115,12 +115,78 @@ export default {
     remember: '记住我',
     hasUser: '已有账号？去登录',
     forgetPassword: '忘记密码',
-    usernamePlaceholder: '请输入用户名',
+    emailPlaceholder: '请输入电邮',
     passwordPlaceholder: '请输入密码',
     code: '验证码',
     codePlaceholder: '请输入验证码'
   },
   router: {
+    views: {
+      inventory: {
+        title: '房况',
+        stock: {
+          title: '房量'
+        },
+        time_segment_switch: {
+          title: '时段'
+        },
+        time_segment_quantity: {
+          title: '数量'
+        }
+      },
+      extras: {
+        title: '加购',
+        extrasItem: {
+          title: '商品',
+          description: ''
+        }
+      },
+      statstastics: {
+        title: '统计',
+        description: '',
+        sms: {
+          title: '简讯统计',
+          description: ''
+        }
+      },
+      settings: {
+        title: '设定',
+        description: '',
+        hotel: {
+          title: '旅馆',
+          description: ''
+        },
+        hotelPhoto: {
+          title: '轮播图片',
+          description: ''
+        },
+        account: {
+          title: '帐号',
+          description: ''
+        },
+        roomType: {
+          title: '房型',
+          description: ''
+        },
+        plan: {
+          title: '专案',
+          description: ''
+        }
+      },
+      reservations: {
+        title: '订单',
+        description: '',
+        list: {
+          title: '列表',
+          description: ''
+        },
+        book: {
+          title: '预约',
+          description:
+            '后台手动代客预约，可预约今日后休息，预约后房量仍会减1，不受日期、房量、时段，方案之设定所限制。'
+        }
+      }
+    },
     login: '登录',
     level: '多级菜单',
     menu: '菜单',

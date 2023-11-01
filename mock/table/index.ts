@@ -190,7 +190,14 @@ export default [
       if (!body.id) {
         List = [
           Object.assign(body, {
-            id: toAnyString()
+            id: toAnyString(),
+            author: toAnyString(),
+            title: toAnyString(),
+            content: toAnyString(),
+            importance: 3,
+            display_time: toAnyString(),
+            pageviews: 100,
+            image_uri: toAnyString()
           })
         ].concat(List)
         return {

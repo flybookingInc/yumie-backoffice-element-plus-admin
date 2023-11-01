@@ -107,7 +107,7 @@ export default {
   login: {
     welcome: 'Welcome to the system',
     message: 'Backstage management system',
-    username: 'Username',
+    email: 'Email',
     password: 'Password',
     register: 'Register',
     checkPassword: 'Confirm password',
@@ -116,12 +116,78 @@ export default {
     remember: 'Remember me',
     hasUser: 'Existing account? Go to login',
     forgetPassword: 'Forget password',
-    usernamePlaceholder: 'Please input username',
+    emailPlaceholder: 'Please input email',
     passwordPlaceholder: 'Please input password',
     code: 'Verification code',
     codePlaceholder: 'Please input verification code'
   },
   router: {
+    views: {
+      inventory: {
+        title: 'Inventory',
+        stock: {
+          title: 'Stock'
+        },
+        time_segment_switch: {
+          title: 'Time segment enabled'
+        },
+        time_segment_quantity: {
+          title: 'time segment quantity'
+        }
+      },
+      extras: {
+        title: 'Extras',
+        extrasItem: {
+          title: 'Products',
+          description: ''
+        }
+      },
+      statstastics: {
+        title: 'Statstastics',
+        description: '',
+        sms: {
+          title: 'SMS',
+          description: ''
+        }
+      },
+      settings: {
+        title: 'Settings',
+        description: '',
+        hotel: {
+          title: 'Hotel',
+          description: ''
+        },
+        hotelPhoto: {
+          title: 'SlidingPhoto',
+          description: ''
+        },
+        account: {
+          title: 'Account',
+          description: ''
+        },
+        roomType: {
+          title: 'Room type',
+          description: ''
+        },
+        plan: {
+          title: 'Plan',
+          description: ''
+        }
+      },
+      reservations: {
+        title: 'Reservations',
+        description: '',
+        list: {
+          title: 'List',
+          description: ''
+        },
+        book: {
+          title: 'Book',
+          description:
+            'You can manually make a reservation on behalf of the customer in the background. You can make a reservation for rest after today. After the reservation, the room quantity will still be reduced by 1, and it is not restricted by the date, room quantity, time period, and plan settings.'
+        }
+      }
+    },
     login: 'Login',
     level: 'Multi level menu',
     menu: 'Menu',

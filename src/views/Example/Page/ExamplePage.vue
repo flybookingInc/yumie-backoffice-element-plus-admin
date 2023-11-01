@@ -51,10 +51,7 @@ getList()
 
 useEmitt({
   name: 'getList',
-  callback: (type: string) => {
-    if (type === 'add') {
-      currentPage.value = 1
-    }
+  callback: () => {
     getList()
   }
 })

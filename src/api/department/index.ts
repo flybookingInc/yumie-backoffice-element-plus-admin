@@ -1,12 +1,12 @@
 import request from '@/config/axios'
-import { DepartmentListResponse, DepartmentUserParams, DepartmentUserResponse } from './types'
+import { DepartmentUserParams } from './types'
 
 export const getDepartmentApi = () => {
-  return request.get<DepartmentListResponse>({ url: '/department/list' })
+  return request.get({ url: '/department/list' })
 }
 
 export const getUserByIdApi = (params: DepartmentUserParams) => {
-  return request.get<DepartmentUserResponse>({ url: '/department/users', params })
+  return request.get({ url: '/department/users', params })
 }
 
 export const deleteUserByIdApi = (ids: string[] | number[]) => {

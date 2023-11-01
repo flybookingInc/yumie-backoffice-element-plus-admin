@@ -21,3 +21,6 @@ VITE_OUT_DIR=dist-pro
 
 # 标题
 VITE_APP_TITLE=ElementAdmin
+
+# API 路徑
+VITE_API_URL=http://127.0.0.1:5001/yumie-test/asia-east1/api

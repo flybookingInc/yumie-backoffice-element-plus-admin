@@ -1,0 +1,180 @@
+{
+  "decimal": ".",
+  "thousands": ",",
+  "processing": "處理中...",
+  "lengthMenu": "顯示 _MENU_ 筆結果",
+  "zeroRecords": "沒有符合的結果",
+  "info": "顯示第 _START_ 至 _END_ 筆資料，共 _TOTAL_ 筆",
+  "infoEmpty": "顯示第 0 至 0 筆資料，共 0 筆",
+  "infoFiltered": "(由 _MAX_ 筆結果過濾)",
+  "search": "搜尋:",
+  "emptyTable": "無資料",
+  "paginate": {
+    "first": "第一頁",
+    "previous": "上一頁",
+    "next": "下一頁",
+    "last": "最後一頁"
+  },
+  "aria": {
+    "sortAscending": ": 升序排列",
+    "sortDescending": ": 降序排列"
+  },
+  "autoFill": {
+    "cancel": "取消",
+    "fill": "用 <i>%d<\/i> 填入所有欄位",
+    "fillHorizontal": "水平填入",
+    "fillVertical": "垂直填入",
+    "info": "自動填入選項",
+    "increment": "每格遞增/遞減: <input type='number' value='1'>"
+  },
+  "buttons": {
+    "collection": "集合 <span class='ui-button-icon-primary ui-icon ui-icon-triangle-1-s'><\/span>",
+    "colvis": "列的可視性",
+    "colvisRestore": "恢復列的可視性",
+    "copy": "複製",
+    "copyKeys": "按 ctrl 或者 \u2318 + C 將表單上的資料複製到剪貼簿。<br \/><br \/>要取消，請點擊此文字或按Esc鍵。",
+    "copyTitle": "複製到剪貼簿",
+    "csv": "CSV",
+    "excel": "Excel",
+    "pdf": "PDF",
+    "copySuccess": {
+      "1": "已將 1 行複製到剪貼簿",
+      "_": "已將 %d 行複製到剪貼簿"
+    },
+    "pageLength": {
+      "-1": "顯示所有行",
+      "1": "顯示 1 行",
+      "_": "顯示 %d 行"
+    },
+    "print": "列印"
+  },
+  "searchBuilder": {
+    "add": "增加搜尋條件",
+    "button": {
+      "0": "搜尋產生器",
+      "_": "搜尋產生器 (%d)"
+    },
+    "clearAll": "全部清空",
+    "condition": "條件",
+    "data": "資料",
+    "deleteTitle": "刪除過濾條件",
+    "leftTitle": "Outdent 條件",
+    "logicAnd": "且",
+    "logicOr": "或",
+    "rightTitle": "Indent 條件",
+    "title": {
+      "0": "搜尋產生器",
+      "_": "搜尋產生器 (%d)"
+    },
+    "value": "值",
+    "conditions": {
+      "date": {
+        "after": "日期條件查詢為after條件名稱：大於",
+        "before": "日期條件查詢為before條件名稱：小於",
+        "between": "日期條件查詢為between條件名稱：介於2個日期之間",
+        "empty": "日期條件查詢為empty條件名稱：日期為空",
+        "equals": "日期條件查詢為equals條件名稱：等於",
+        "notBetween": "日期條件查詢為notBetween條件名稱：不介於2個日期之間",
+        "notEmpty": "日期條件查詢為notEmpty條件名稱：日期不為空"
+      },
+      "string": {
+        "contains": "內文包含",
+        "empty": "內文為空",
+        "endsWith": "內文以某某結尾",
+        "equals": "內文等於",
+        "not": "內文不等於",
+        "notEmpty": "內文不為空",
+        "startsWith": "內文從某某開始"
+      }
+    }
+  },
+  "searchPanes": {
+    "collapse": {
+      "0": "搜尋欄",
+      "_": "搜尋欄（%d）"
+    },
+    "title": "應用的過濾器 - %d",
+    "clearMessage": "全部清空",
+    "count": "次數",
+    "countFiltered": "過濾計數",
+    "emptyPanes": "沒有搜尋欄",
+    "loadMessage": "正在載入搜尋欄"
+  },
+  "searchPlaceholder": "請輸入搜尋關鍵字",
+  "select": {
+    "_": "選擇了%d行",
+    "cells": {
+      "1": "選擇了1個儲存格",
+      "_": "選擇了%d個儲存格"
+    },
+    "columns": {
+      "1": "選擇了 1 行",
+      "_": "選擇了 %d 行"
+    },
+    "0": "沒有選中資料行的文字說明",
+    "1": "選中1行的文字說明",
+    "rows": {
+      "1": "被選中1列的說明",
+      "_": "被選中多列的說明"
+    }
+  },
+  "infoThousands": "千分數分隔符號，預設值是英文逗號",
+  "loadingRecords": "資料載入提示資訊，例如：資料載入中...",
+  "editor": {
+    "close": "關閉",
+    "create": {
+      "button": "新增",
+      "title": "新增一筆資料",
+      "submit": "送出"
+    },
+    "edit": {
+      "button": "修改",
+      "title": "修改資料",
+      "submit": "更新"
+    },
+    "remove": {
+      "button": "刪除",
+      "title": "刪除",
+      "submit": "刪除",
+      "confirm": {
+        "_": "確定刪除 %d 筆資料？",
+        "1": "確認刪除這筆資料？"
+      }
+    },
+    "error": {
+      "system": "發生錯誤，請聯絡系統管理員"
+    },
+    "multi": {
+      "title": "不同數值",
+      "info": "選定的元素包含這個項目的不同值。要改變和設置這個項目的所有元素為同一個值，請點擊或按這裡，否則它們將保持各自的值。",
+      "restore": "取消變更"
+    },
+    "datetime": {
+      "previous": "上一頁",
+      "next": "下一頁",
+      "months": [
+        "一月",
+        "二月",
+        "三月",
+        "四月",
+        "五月",
+        "六月",
+        "七月",
+        "八月",
+        "九月",
+        "十月",
+        "十一月",
+        "十二月"
+      ],
+      "weekdays": [
+        "週日",
+        "週一",
+        "週二",
+        "週三",
+        "週四",
+        "週五",
+        "週六"
+      ]
+    }
+  }
+}

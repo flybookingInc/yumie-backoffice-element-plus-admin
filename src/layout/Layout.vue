@@ -57,7 +57,7 @@ export default defineComponent({
 
         {renderLayout()}
 
-        <Backtop></Backtop>
+        <Backtop v-show={appStore.backTop}></Backtop>
 
         <Setting></Setting>
       </section>
