@@ -1,9 +1,9 @@
 <template>
-  <ContentWrap :title="t('router.views.settings.hotelPhoto.title')">
+  <ContentWrap :title="t('router.views.settings.roomType.title')">
     <template #header>
       <el-row>
         <el-col :span="12" class="flex inline-flex justify-start p-2">
-          <el-button class="primary" @click="addAction"> 新增圖片 </el-button>
+          <el-button class="primary" @click="addAction"> 新增房型 </el-button>
         </el-col>
       </el-row>
     </template>
@@ -16,7 +16,7 @@
       :preview="['url']"
       :pageSize="10000"
       :fixed="true"
-      :defaultSort="{ prop: 'photoId', order: 'ascending' }"
+      :defaultSort="{ prop: 'RoomTypeId', order: 'ascending' }"
     />
   </ContentWrap>
 </template>
@@ -25,47 +25,33 @@
 import { ContentWrap } from '@/components/ContentWrap'
 import { Table, TableColumn } from '@/components/Table'
 import { ElButton, ElRow, ElCol, ElMessage, ElMessageBox } from 'element-plus'
-import { ref, reactive, watch } from 'vue'
+import { ref, reactive, watch, onMounted } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useI18n } from '@/hooks/web/useI18n'
 import { useUserStore } from '@/store/modules/user'
 import { useApiStore } from '@/store/modules/api'
-import { HotelPhotoListRowData } from './types'
+import { RoomTypeListRowData } from './types'
 import { useRouter } from 'vue-router'
-import { CoverPhoto } from '@/types/hotel'
-import { HotelPhotoItem } from '@/store/modules/types/api'
 import { useEmitt } from '@/hooks/event/useEmitt'
+import { getRoomTypesResponse } from '@/store/modules/types/api'
 
 const { push } = useRouter()
 const { currentHotelId } = storeToRefs(useUserStore()) // use storeToRef to keep property reactive
-const { getHotelPhotos, deleteHotelPhoto } = useApiStore()
+const { getRoomTypes, deleteRoomType } = useApiStore()
 const { t } = useI18n()
 const tableRef = ref<typeof Table>()
 const loading = ref(false)
-const tableData = reactive<HotelPhotoListRowData[]>([])
+const tableData = reactive<RoomTypeListRowData[]>([])
 
 const columns: TableColumn[] = [
   {
-    field: 'photoId',
+    field: 'roomTypeId',
     label: 'ID',
     hidden: true
   },
   {
-    field: 'sequence',
-    label: '輪播順序',
-    width: '50px'
-  },
-  {
-    field: 'url',
-    label: '輪播圖片'
-  },
-  {
-    field: 'title',
-    label: '標題'
-  },
-  {
-    field: 'subtitle',
-    label: '副標題'
+    field: 'roomTypeName',
+    label: '名稱'
   },
   {
     field: 'actions',
@@ -96,21 +82,24 @@ const columns: TableColumn[] = [
   }
 ]
 
-// get table list data
 const getList = async (currentHotelId: string) => {
+  tableData.splice(0, tableData.length)
   loading.value = true
   try {
     if (!currentHotelId) return
-    const response = await getHotelPhotos({ hotelId: currentHotelId })
-    if (response.status !== 200 || !response.data) return
-    const coverPhotos = response.data as CoverPhoto[]
-    coverPhotos.forEach((photo, index) => {
+    const response = await getRoomTypes({ hotelId: currentHotelId }).catch((err) => {
+      console.log(err)
+      return
+    })
+    if (!response || response.status !== 200 || !response.data) return
+    const { roomTypes } = response.data as getRoomTypesResponse
+    roomTypes.forEach((roomType) => {
       tableData.push({
-        photoId: index,
-        sequence: index,
-        title: photo.title,
-        subtitle: photo.subtitle,
-        url: photo.url
+        roomTypeId: roomType.roomTypeId,
+        roomTypeName: roomType.roomTypeName,
+        inventorySyncToHotelDocDays: roomType.inventorySyncToHotelDocDays,
+        interval: roomType.interval,
+        associatePlansId: roomType.associatePlansId
       })
     })
   } catch (err) {
@@ -119,10 +108,6 @@ const getList = async (currentHotelId: string) => {
   } finally {
     loading.value = false
   }
-}
-
-if (currentHotelId.value) {
-  getList(currentHotelId.value)
 }
 
 useEmitt({
@@ -142,30 +127,39 @@ watch(currentHotelId, async (hotelId) => {
   await getList(hotelId)
 })
 
+onMounted(async () => {
+  if (!currentHotelId.value) return
+  await getList(currentHotelId.value)
+})
+
 const addAction = () => {
-  push('/settings/hotel-photo-add')
+  push('/settings/room-type-add')
 }
 
-const updateAction = (row: HotelPhotoListRowData) => {
-  push(`/settings/hotel-photo-update?photoId=${row.photoId}`)
+const updateAction = (row: RoomTypeListRowData) => {
+  push(`/settings/room-type-update?roomTypeId=${row.roomTypeId}`)
 }
 
-const deleteAction = async (row: HotelPhotoListRowData) => {
-  const deletePhoto: HotelPhotoItem = {
-    sequence: row.sequence,
-    title: row.title,
-    subtitle: row.subtitle,
-    url: row.url
-  }
+const deleteAction = async (row: RoomTypeListRowData) => {
   try {
+    // ElMessageBox confirm dialog
     ElMessageBox.confirm('確定要刪除嗎?', '提示', {
       confirmButtonText: '確定',
       cancelButtonText: '取消',
       type: 'warning'
     }).then(async () => {
       if (!currentHotelId.value) return
-      await deleteHotelPhoto({ hotelId: currentHotelId.value, photo: deletePhoto })
-      ElMessage.success('刪除成功')
+      await deleteRoomType({
+        hotelId: currentHotelId.value,
+        roomTypeId: row.roomTypeId
+      })
+        .then(() => {
+          getList(currentHotelId.value!)
+          ElMessage.success('刪除成功')
+        })
+        .catch((err) => {
+          console.log(err)
+        })
     })
   } catch (err) {
     ElMessage.error('刪除失敗')

@@ -29,6 +29,8 @@ export interface Plan {
   disabledWeekdays: number[]
   imagePath: string
   inventory: { [key: string]: number }
+  keepInventoryDays: number
+  intervalQuantity: { [key: string]: number }
   planName: string
   roomTypeId: string
   sequence: string

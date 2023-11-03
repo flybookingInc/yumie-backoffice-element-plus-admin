@@ -185,6 +185,22 @@ export default {
           description:
             '後台手動代客預約，可預約今日後休息，預約後房量仍會減1，不受日期、房量、時段，方案之設定所限制。'
         }
+      },
+      authorization: {
+        title: '權限管理',
+        description: '',
+        user: {
+          title: '使用者',
+          description: ''
+        },
+        role: {
+          title: '角色',
+          description: ''
+        },
+        menu: {
+          title: '選單',
+          description: ''
+        }
       }
     },
     login: '登錄',

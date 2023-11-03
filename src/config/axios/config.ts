@@ -9,44 +9,44 @@ import qs from 'qs'
 
 const config: AxiosConfig = {
   /**
-   * api请求基础路径
+   * api請求基礎路徑
    */
   baseUrl: {
-    // 开发环境接口前缀
+    // 開發環境接口前綴
     base: 'http://127.0.0.1:5001/yumie-test/asia-east1/api',
 
-    // 打包开发环境接口前缀
+    // 打包開發環境接口前綴
     dev: 'http://127.0.0.1:5001/yumie-test/asia-east1/api',
 
-    // 打包生产环境接口前缀
+    // 打包生產環境接口前綴
     pro: 'http://127.0.0.1:5001/yumie-test/asia-east1/api',
 
-    // 打包测试环境接口前缀
+    // 打包測試環境接口前綴
     test: 'http://127.0.0.1:5001/yumie-test/asia-east1/api'
   },
 
   /**
-   * 接口成功返回状态码
+   * 接口成功返回狀態碼
    */
   code: 0,
 
   /**
-   * 接口请求超时时间
+   * 接口請求超時時間
    */
   timeout: 60000,
 
   /**
-   * 默认接口请求类型
-   * 可选值：application/x-www-form-urlencoded multipart/form-data
+   * 默認接口請求類型
+   * 可選值：application/x-www-form-urlencoded multipart/form-data
    */
   defaultHeaders: 'application/json',
 
   interceptors: {
-    //请求拦截
+    //請求攔截
     // requestInterceptors: (config) => {
     //   return config
     // },
-    // 响应拦截器
+    // 響應攔截器
     // responseInterceptors: (result: AxiosResponse) => {
     //   return result
     // }
@@ -78,7 +78,7 @@ const defaultRequestInterceptors = (config: InternalAxiosRequestConfig) => {
 
 const defaultResponseInterceptors = (response: AxiosResponse<any>) => {
   if (response?.config?.responseType === 'blob') {
-    // 如果是文件流，直接过
+    // 如果是文件流，直接過
     return response
   } else if (response.data.code === config.code) {
     return response.data

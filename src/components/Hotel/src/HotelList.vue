@@ -22,9 +22,9 @@
 <script setup lang="tsx">
 import { ContentWrap } from '@/components/ContentWrap'
 import { Table, TableColumn } from '@/components/Table'
-import { ElSwitch, ElButton, ElRow, ElCol, ElMessage } from 'element-plus'
+import { ElSwitch, ElButton, ElRow, ElCol, ElMessage, ElMessageBox } from 'element-plus'
 import { Alignment } from 'element-plus/es/components/table-v2/src/constants'
-import { ref, reactive, onMounted } from 'vue'
+import { ref, reactive } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useI18n } from '@/hooks/web/useI18n'
 import { useUserStore } from '@/store/modules/user'
@@ -102,7 +102,8 @@ const columns: TableColumn[] = [
   }
 ]
 
-onMounted(async () => {
+// get table list data
+const getList = async () => {
   loading.value = true
   try {
     const response = await getHotels()
@@ -120,7 +121,9 @@ onMounted(async () => {
   } finally {
     loading.value = false
   }
-})
+}
+
+getList()
 
 const addAction = () => {
   push('/settings/hotel-add')
@@ -137,8 +140,15 @@ const updatePhotoAction = (row: HotelListRowData) => {
 const deleteAction = async (row: HotelListRowData) => {
   if (!currentHotelId.value) return
   try {
-    await deleteHotel({ hotelId: row.hotelId })
-    ElMessage.success('刪除成功')
+    ElMessageBox.confirm('確定要刪除嗎?', '提示', {
+      confirmButtonText: '確定',
+      cancelButtonText: '取消',
+      type: 'warning'
+    }).then(async () => {
+      await deleteHotel({ hotelId: row.hotelId })
+      await getList()
+      ElMessage.success('刪除成功')
+    })
   } catch (err) {
     ElMessage.error('刪除失敗')
   }

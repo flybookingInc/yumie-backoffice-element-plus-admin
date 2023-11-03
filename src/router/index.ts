@@ -10,7 +10,7 @@ export const constantRouterMap: AppRouteRecordRaw[] = [
   {
     path: '/',
     component: Layout,
-    redirect: '/dashboard/analysis',
+    redirect: '/reservations/list',
     name: 'Root',
     meta: {
       hidden: true
@@ -83,7 +83,7 @@ export const asyncRouterMap: AppRouteRecordRaw[] = [
         name: 'Book',
         meta: {
           title: t('router.views.reservations.book.title'),
-          noCache: true
+          noCache: false
         }
       }
     ]
@@ -175,26 +175,66 @@ export const asyncRouterMap: AppRouteRecordRaw[] = [
       alwaysShow: true
     },
     children: [
-      //     {
-      //       path: 'roomType',
-      //       component: () => import('@/views/extrasItem.vue'),
-      //       name: 'roomType',
-      //       meta: {
-      //         title: t('router.views.settings.roomType.title'),
-      //         noCache: true,
-      //         affix: true
-      //       }
-      //     },
-      //     {
-      //       path: 'plan',
-      //       component: () => import('@/views/extrasItem.vue'),
-      //       name: 'plan',
-      //       meta: {
-      //         title: t('router.views.settings.plan.title'),
-      //         noCache: true,
-      //         affix: true
-      //       }
-      //     },
+      {
+        path: 'room-type',
+        component: () => import('@/views/Setting/roomType.vue'),
+        name: 'roomType',
+        meta: {
+          title: t('router.views.settings.roomType.title'),
+          noCache: true,
+          affix: true
+        }
+      },
+      {
+        path: 'room-type-add',
+        component: () => import('@/components/RoomType/src/RoomTypeAdd.vue'),
+        name: 'roomTypeAdd',
+        meta: {
+          hidden: true,
+          title: '新增房型',
+          noTagsView: true
+        }
+      },
+      {
+        path: 'room-type-update',
+        component: () => import('@/components/RoomType/src/RoomTypeUpdate.vue'),
+        name: 'roomTypeUpdate',
+        meta: {
+          hidden: true,
+          title: '編輯房型',
+          noTagsView: true
+        }
+      },
+      {
+        path: 'plan-list',
+        component: () => import('@/views/Setting/plan.vue'),
+        name: 'planList',
+        meta: {
+          title: t('router.views.settings.plan.title'),
+          noCache: true,
+          affix: true
+        }
+      },
+      {
+        path: 'plan-add',
+        component: () => import('@/components/Plan/src/PlanAdd.vue'),
+        name: 'planAdd',
+        meta: {
+          hidden: true,
+          title: '新增專案',
+          noTagsView: true
+        }
+      },
+      {
+        path: 'plan-update',
+        component: () => import('@/components/Plan/src/PlanUpdate.vue'),
+        name: 'planUpdate',
+        meta: {
+          hidden: true,
+          title: '編輯專案',
+          noTagsView: true
+        }
+      },
       {
         path: 'hotel',
         component: () => import('@/views/Setting/hotel.vue'),
@@ -268,33 +308,38 @@ export const asyncRouterMap: AppRouteRecordRaw[] = [
     ]
   },
   {
-    path: '/dashboard',
+    path: '/authorization',
     component: Layout,
-    redirect: '/dashboard/analysis',
-    name: 'Dashboard',
+    redirect: '/authorization/user',
+    name: 'Authorization',
     meta: {
-      title: t('router.dashboard'),
+      title: t('router.views.authorization.title'),
       icon: 'ant-design:dashboard-filled',
       alwaysShow: true
     },
     children: [
       {
-        path: 'analysis',
-        component: () => import('@/views/Dashboard/Analysis.vue'),
-        name: 'Analysis',
+        path: 'user',
+        component: () => import('@/views/Authorization/User/User.vue'),
+        name: 'User',
         meta: {
-          title: t('router.analysis'),
-          noCache: true,
-          affix: true
+          title: t('router.views.authorization.user.title')
         }
       },
       {
-        path: 'workplace',
-        component: () => import('@/views/Dashboard/Workplace.vue'),
-        name: 'Workplace',
+        path: 'menu',
+        component: () => import('@/views/Authorization/Menu/Menu.vue'),
+        name: 'Menu',
         meta: {
-          title: t('router.workplace'),
-          noCache: true
+          title: t('router.views.authorization.menu.title')
+        }
+      },
+      {
+        path: 'role',
+        component: () => import('@/views/Authorization/Role/Role.vue'),
+        name: 'Role',
+        meta: {
+          title: t('router.views.authorization.role.title')
         }
       }
     ]

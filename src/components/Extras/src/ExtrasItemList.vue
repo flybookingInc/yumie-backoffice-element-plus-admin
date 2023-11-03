@@ -34,7 +34,7 @@
 <script setup lang="tsx">
 import { ContentWrap } from '@/components/ContentWrap'
 import { Table, TableColumn } from '@/components/Table'
-import { ElSwitch, ElButton, ElRow, ElCol, ElMessage } from 'element-plus'
+import { ElSwitch, ElButton, ElRow, ElCol, ElMessage, ElMessageBox } from 'element-plus'
 import { Alignment } from 'element-plus/es/components/table-v2/src/constants'
 import { ref, watch, reactive } from 'vue'
 import { storeToRefs } from 'pinia'
@@ -44,10 +44,12 @@ import { useApiStore } from '@/store/modules/api'
 import Swal from 'sweetalert2'
 import { RowData } from './types'
 import { useRouter } from 'vue-router'
+import { ExtraItems } from '@/types/hotel'
 
 const { push } = useRouter()
 const { hotelData, currentHotelId } = storeToRefs(useUserStore()) // use storeToRef to keep property reactive
-const { updateEnableExtrasValue, updateExtraItemEnabledValue, deleteExtrasItem } = useApiStore()
+const { updateEnableExtrasValue, updateExtraItemEnabledValue, deleteExtrasItem, getExtrasItems } =
+  useApiStore()
 const { t } = useI18n()
 const extrasEnabled = ref<boolean>(false)
 const tableRef = ref<typeof Table>()
@@ -72,7 +74,6 @@ const columns: TableColumn[] = [
     align: Alignment.CENTER,
     slots: {
       default: (data: any) => {
-        console.log(data)
         return (
           <ElSwitch
             v-model={data.row.status}
@@ -140,9 +141,40 @@ const columns: TableColumn[] = [
   }
 ]
 
-// const actionFn = (data: TableSlotDefault) => {
-//   console.log(data)
-// }
+// get table list data
+const getList = async () => {
+  if (!currentHotelId.value) return
+  try {
+    loading.value = true
+    const response = await getExtrasItems({ hotelId: currentHotelId.value })
+    if (response.status !== 200 || !response.data) return
+    const items = response.data as ExtraItems
+    tableData.splice(0, tableData.length)
+    const itemsKey = Object.keys(items)
+    console.log('itemsKey=', itemsKey)
+    for (const key of itemsKey) {
+      const item = items[key]
+      console.log('item=', item)
+      const row: RowData = {
+        id: key,
+        coverPhoto: item.extraImagePath || '',
+        name: item.extraName,
+        description: item.extraDescription || '',
+        price: item.extraPrice,
+        status: item.enable || false,
+        sequence: item.order,
+        actions: ['修改', '刪除']
+      }
+      tableData.push(row)
+    }
+  } catch (err) {
+    console.log(err)
+  } finally {
+    loading.value = false
+  }
+}
+
+getList()
 
 const addAction = () => {
   push('/extras/items-add')
@@ -153,10 +185,17 @@ const updateAction = (row: RowData) => {
 }
 
 const deleteAction = async (row: RowData) => {
-  if (!currentHotelId.value) return
   try {
-    await deleteExtrasItem({ hotelId: currentHotelId.value, itemId: row.id })
-    ElMessage.success('刪除成功')
+    ElMessageBox.confirm('確定要刪除嗎?', '提示', {
+      confirmButtonText: '確定',
+      cancelButtonText: '取消',
+      type: 'warning'
+    }).then(async () => {
+      if (!currentHotelId.value) return
+      await deleteExtrasItem({ hotelId: currentHotelId.value, itemId: row.id })
+      await getList()
+      ElMessage.success('刪除成功')
+    })
   } catch (err) {
     ElMessage.error('刪除失敗')
   }
@@ -170,41 +209,6 @@ watch(
     extrasEnabled.value = value || false
   },
   { immediate: true }
-)
-
-// bind hotelData.extras.items to tableData
-watch(
-  () => hotelData.value?.extras?.items,
-  (items) => {
-    if (!items) {
-      return
-    }
-    try {
-      // reset tableData
-      tableData.splice(0, tableData.length)
-      const itemsKey = Object.keys(items)
-      for (let key of itemsKey) {
-        const item = items[key]
-        const row: RowData = {
-          id: key,
-          coverPhoto: item.extraImagePath || '',
-          name: item.extraName,
-          description: item.extraDescription || '',
-          price: item.extraPrice,
-          status: item.enable || false,
-          sequence: item.order,
-          actions: ['修改', '刪除']
-        }
-        tableData.push(row)
-      }
-    } catch (e) {
-      console.log(e)
-    }
-  },
-  {
-    immediate: true,
-    deep: true
-  }
 )
 
 const handleExtraEnabledChange = () => {

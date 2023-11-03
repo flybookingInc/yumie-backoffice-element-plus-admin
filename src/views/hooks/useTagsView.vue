@@ -11,7 +11,7 @@ const { closeAll, closeLeft, closeRight, closeOther, closeCurrent, refreshPage, 
 
 const closeAllTabs = () => {
   closeAll(() => {
-    push('/dashboard/analysis')
+    push('/')
   })
 }
 
@@ -33,7 +33,7 @@ const refresh = () => {
 
 const closeCurrentTab = () => {
   closeCurrent(undefined, () => {
-    push('/dashboard/analysis')
+    push('/')
   })
 }
 
@@ -42,19 +42,19 @@ const setTabTitle = () => {
 }
 
 const setAnalysisTitle = () => {
-  setTitle(`分析页-${new Date().getTime().toString()}`, '/dashboard/analysis')
+  setTitle(`訂單-${new Date().getTime().toString()}`, '/reservations/list')
 }
 </script>
 
 <template>
   <ContentWrap title="useTagsView">
-    <ElButton type="primary" @click="closeAllTabs"> 关闭所有标签页 </ElButton>
-    <ElButton type="primary" @click="closeLeftTabs"> 关闭左侧标签页 </ElButton>
-    <ElButton type="primary" @click="closeRightTabs"> 关闭右侧标签页 </ElButton>
-    <ElButton type="primary" @click="closeOtherTabs"> 关闭其他标签页 </ElButton>
-    <ElButton type="primary" @click="closeCurrentTab"> 关闭当前标签页 </ElButton>
-    <ElButton type="primary" @click="refresh"> 刷新当前标签页 </ElButton>
-    <ElButton type="primary" @click="setTabTitle"> 修改当前标题 </ElButton>
-    <ElButton type="primary" @click="setAnalysisTitle"> 修改分析页标题 </ElButton>
+    <ElButton type="primary" @click="closeAllTabs"> 關閉所有標籤頁 </ElButton>
+    <ElButton type="primary" @click="closeLeftTabs"> 關閉左側標籤頁 </ElButton>
+    <ElButton type="primary" @click="closeRightTabs"> 關閉右側標籤頁 </ElButton>
+    <ElButton type="primary" @click="closeOtherTabs"> 關閉其他標籤頁 </ElButton>
+    <ElButton type="primary" @click="closeCurrentTab"> 關閉當前標籤頁 </ElButton>
+    <ElButton type="primary" @click="refresh"> 刷新當前標籤頁 </ElButton>
+    <ElButton type="primary" @click="setTabTitle"> 修改當前標題 </ElButton>
+    <ElButton type="primary" @click="setAnalysisTitle"> 修改分析頁標題 </ElButton>
   </ContentWrap>
 </template>

@@ -186,6 +186,22 @@ export default {
           description:
             'You can manually make a reservation on behalf of the customer in the background. You can make a reservation for rest after today. After the reservation, the room quantity will still be reduced by 1, and it is not restricted by the date, room quantity, time period, and plan settings.'
         }
+      },
+      authorization: {
+        title: 'authorization',
+        description: '',
+        user: {
+          title: 'User',
+          description: ''
+        },
+        role: {
+          title: 'Role',
+          description: ''
+        },
+        menu: {
+          title: 'Menu',
+          description: ''
+        }
       }
     },
     login: 'Login',
