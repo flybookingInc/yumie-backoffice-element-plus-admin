@@ -1,6 +1,7 @@
 <script setup lang="tsx">
 import { reactive, ref, unref } from 'vue'
-import { getMenuListApi } from '@/api/menu'
+import { useApiStore } from '@/store/modules/api'
+import { useUserStore } from '@/store/modules/user'
 import { useTable } from '@/hooks/web/useTable'
 import { useI18n } from '@/hooks/web/useI18n'
 import { Table, TableColumn } from '@/components/Table'
@@ -13,12 +14,19 @@ import Write from './components/Write.vue'
 import { Dialog } from '@/components/Dialog'
 
 const { t } = useI18n()
+const { getMenus } = useApiStore()
+const { currentHotelId } = useUserStore()
 
 const { tableRegister, tableState, tableMethods } = useTable({
   fetchDataApi: async () => {
-    const res = await getMenuListApi()
-    return {
-      list: res.data.list || []
+    try {
+      const res = await getMenus({ hotelId: currentHotelId! })
+      return {
+        list: res.data.list || []
+      }
+    } catch (e) {
+      console.log(e)
+      return { list: [] }
     }
   }
 })

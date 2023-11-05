@@ -13,7 +13,7 @@ export default {
     back: '返回',
     ok: '確定',
     cancel: '取消',
-    reload: '重新加載',
+    reload: '重新載入',
     closeTab: '關閉標籤頁',
     closeTheLeftTab: '關閉左側標籤頁',
     closeTheRightTab: '關閉右側標籤頁',
@@ -23,10 +23,10 @@ export default {
     nextLabel: '下一步',
     skipLabel: '跳過',
     doneLabel: '結束',
-    menu: '菜單',
-    menuDes: '以路由的結構渲染的菜單欄',
+    menu: '選單',
+    menuDes: '以路由的結構渲染的選單欄',
     collapse: '展開縮收',
-    collapseDes: '展開和縮放菜單欄',
+    collapseDes: '展開和縮放選單欄',
     tagsView: '標籤頁',
     tagsViewDes: '用於記錄路由歷史記錄',
     tool: '工具',
@@ -71,32 +71,32 @@ export default {
     theme: '主題',
     layout: '佈局',
     systemTheme: '系統主題',
-    menuTheme: '菜單主題',
+    menuTheme: '選單主題',
     interfaceDisplay: '界面顯示',
     breadcrumb: '麪包屑',
-    breadcrumbIcon: '麪包屑圖標',
-    collapseMenu: '摺疊菜單',
-    hamburgerIcon: '摺疊圖標',
-    screenfullIcon: '全屏圖標',
-    sizeIcon: '尺寸圖標',
-    localeIcon: '多語言圖標',
+    breadcrumbIcon: '麪包屑圖示',
+    collapseMenu: '摺疊選單',
+    hamburgerIcon: '摺疊圖示',
+    screenfullIcon: '全屏圖示',
+    sizeIcon: '尺寸圖示',
+    localeIcon: '多語言圖示',
     tagsView: '標籤頁',
     logo: '標誌',
     greyMode: '灰色模式',
     fixedHeader: '固定頭部',
     headerTheme: '頭部主題',
-    cutMenu: '切割菜單',
+    cutMenu: '切割選單',
     copy: '拷貝',
     clearAndReset: '清除緩存並且重置',
     copySuccess: '拷貝成功',
     copyFailed: '拷貝失敗',
     footer: '頁腳',
-    uniqueOpened: '菜單手風琴',
-    tagsViewIcon: '標籤頁圖標',
+    uniqueOpened: '選單手風琴',
+    tagsViewIcon: '標籤頁圖示',
     dynamicRouter: '開啓動態路由',
     serverDynamicRouter: '服務端動態路由',
     reExperienced: '請重新退出登錄體驗',
-    fixedMenu: '固定菜單'
+    fixedMenu: '固定選單'
   },
   size: {
     default: '默認',
@@ -204,24 +204,24 @@ export default {
       }
     },
     login: '登錄',
-    level: '多級菜單',
-    menu: '菜單',
-    menu1: '菜單1',
-    menu11: '菜單1-1',
-    menu111: '菜單1-1-1',
-    menu12: '菜單1-2',
-    menu2: '菜單2',
+    level: '多級選單',
+    menu: '選單',
+    menu1: '選單1',
+    menu11: '選單1-1',
+    menu111: '選單1-1-1',
+    menu12: '選單1-2',
+    menu2: '選單2',
     dashboard: '首頁',
     analysis: '分析頁',
     workplace: '工作台',
     guide: '引導',
-    component: '組件',
-    icon: '圖標',
+    component: '元件',
+    icon: '圖示',
     echart: '圖表',
     countTo: '數字動畫',
-    watermark: '水印',
+    watermark: '浮水印',
     qrcode: '二維碼',
-    highlight: '高亮',
+    highlight: '醒目',
     infotip: '信息提示',
     form: '表單',
     defaultForm: '全部示例',
@@ -231,11 +231,11 @@ export default {
     editor: '編輯器',
     richText: '富文本',
     jsonEditor: 'JSON編輯器',
-    dialog: '彈窗',
+    dialog: '對話窗',
     imageViewer: '圖片預覽',
     descriptions: '描述',
     example: '綜合示例',
-    exampleDialog: '綜合示例 - 彈窗',
+    exampleDialog: '綜合示例 - 對話窗',
     examplePage: '綜合示例 - 頁面',
     exampleAdd: '綜合示例 - 新增',
     exampleEdit: '綜合示例 - 編輯',
@@ -250,12 +250,12 @@ export default {
     treeTable: '樹形表格',
     PicturePreview: '表格圖片預覽',
     department: '部門管理',
-    menuManagement: '菜單管理',
+    menuManagement: '選單管理',
     permission: '權限測試頁',
     function: '功能',
     multipleTabs: '多開標籤頁',
     details: '詳情頁',
-    iconPicker: '圖標選擇器',
+    iconPicker: '圖示選擇器',
     request: '請求'
   },
   permission: {
@@ -324,7 +324,7 @@ export default {
     input: '輸入框',
     inputNumber: '數字輸入框',
     default: '默認',
-    icon: '圖標',
+    icon: '圖示',
     mixed: '複合型',
     password: '密碼框',
     textarea: '多行文本',
@@ -367,7 +367,7 @@ export default {
     inputPassword: '密碼輸入框',
     passwordStrength: '密碼強度',
     defaultForm: '全部示例',
-    formDes: '基於 ElementPlus 的 Form 組件二次封裝，實現數據驅動，支持所有 Form 參數',
+    formDes: '基於 ElementPlus 的 Form 元件二次封裝，實現數據驅動，支持所有 Form 參數',
     example: '示例',
     operate: '操作',
     change: '更改',
@@ -387,8 +387,8 @@ export default {
     // JSON編輯器
     jsonEditor: 'JSON編輯器',
     form: '表單',
-    // 遠程加載
-    remoteLoading: '遠程加載',
+    // 遠程載入
+    remoteLoading: '遠程載入',
     // 聚焦
     focus: '聚焦',
     treeSelect: '樹形選擇器',
@@ -397,10 +397,10 @@ export default {
     multiple: '多選',
     filterable: '可篩選',
     customContent: '自定義內容',
-    lazyLoad: '懶加載',
+    lazyLoad: '延遲載入',
     upload: '上傳',
-    userAvatar: '用户頭像',
-    iconPicker: '圖標選擇器'
+    userAvatar: '用户圖片',
+    iconPicker: '圖示選擇器'
   },
   guideDemo: {
     guide: '引導頁',
@@ -409,25 +409,25 @@ export default {
       '引導頁對於一些第一次進入項目的人很有用，你可以簡單介紹下項目的功能。引導頁基於 driver.js'
   },
   iconDemo: {
-    icon: '圖標',
-    localIcon: '本地圖標',
-    iconify: 'Iconify組件',
+    icon: '圖示',
+    localIcon: '本地圖示',
+    iconify: 'Iconify元件',
     recommendedUse: '推薦使用',
     recommendeDes:
-      'Iconify組件基本包含所有的圖標，你可以查詢到你想要的任何圖標。並且打包只會打包所用到的圖標。',
+      'Iconify元件基本包含所有的圖示，你可以查詢到你想要的任何圖示。並且封裝只會用到的圖示。',
     accessAddress: '訪問地址'
   },
   echartDemo: {
     echart: '圖表',
     echartDes:
-      '基於 echarts 二次封裝組件，自適應寬度，只需傳入 options 與 height 屬性即可展示對應的圖表。'
+      '基於 echarts 二次封裝元件，自適應寬度，只需傳入 options 與 height 屬性即可展示對應的圖表。'
   },
   countToDemo: {
     countTo: '數字動畫',
     countToDes: '基於 vue-count-to 進行改造，支持所有 vue-count-to 參數。',
     suffix: '後綴',
     prefix: '前綴',
-    separator: '分割符號',
+    separator: '分隔符號',
     duration: '持續時間',
     endVal: '結束值',
     startVal: '開始值',
@@ -436,10 +436,10 @@ export default {
     resume: '繼續'
   },
   watermarkDemo: {
-    watermark: '水印',
-    createdWatermark: '創建水印',
-    clearWatermark: '清除水印',
-    resetWatermark: '重置水印'
+    watermark: '浮水印',
+    createdWatermark: '創建浮水印',
+    clearWatermark: '清除浮水印',
+    resetWatermark: '重置浮水印'
   },
   qrcodeDemo: {
     qrcode: '二維碼',
@@ -455,22 +455,22 @@ export default {
     size: '大小配置'
   },
   highlightDemo: {
-    highlight: '高亮',
+    highlight: '醒目',
     message: '種一棵樹最好的時間是十年前，其次就是現在。',
     keys1: '十年前',
     keys2: '現在'
   },
   infotipDemo: {
     infotip: '信息提示',
-    infotipDes: '基於 Highlight 組件二次封裝',
+    infotipDes: '基於 Highlight 元件二次封裝',
     title: '注意事項'
   },
   levelDemo: {
-    menu: '多級菜單緩存'
+    menu: '多級選單緩存'
   },
   searchDemo: {
     search: '查詢',
-    searchDes: '基於 Form 組件二次封裝，實現查詢、重置功能',
+    searchDes: '基於 Form 元件二次封裝，實現查詢、重置功能',
     operate: '操作',
     change: '更改',
     grid: '柵格',
@@ -487,7 +487,7 @@ export default {
     deleteRadio: '刪除單選框',
     // 還原單選框
     restoreRadio: '還原單選框',
-    loading: '加載中',
+    loading: '載入中',
     reset: '重置'
   },
   stickyDemo: {
@@ -495,7 +495,7 @@ export default {
   },
   tableDemo: {
     table: '表格',
-    tableDes: '基於 ElementPlus 的 Table 組件二次封裝',
+    tableDes: '基於 ElementPlus 的 Table 元件二次封裝',
     index: '序號',
     title: '標題',
     author: '作者',
@@ -535,8 +535,8 @@ export default {
     jsonEditorDes: '基於 vue-json-pretty 二次封裝'
   },
   dialogDemo: {
-    dialog: '彈窗',
-    dialogDes: '基於 ElementPlus 的 Dialog 組件二次封裝',
+    dialog: '對話窗',
+    dialogDes: '基於 ElementPlus 的 Dialog 元件二次封裝',
     open: '打開',
     close: '關閉',
     combineWithForm: '與表單結合',
@@ -545,17 +545,17 @@ export default {
   imageViewerDemo: {
     open: '打開',
     imageViewer: '圖片預覽',
-    imageViewerDes: '基於 ElementPlus 的 ImageViewer 組件二次封裝'
+    imageViewerDes: '基於 ElementPlus 的 ImageViewer 元件二次封裝'
   },
   descriptionsDemo: {
     descriptions: '描述',
-    descriptionsDes: '基於 ElementPlus 的 Descriptions 組件二次封裝',
+    descriptionsDes: '基於 ElementPlus 的 Descriptions 元件二次封裝',
     username: '用户名',
     nickName: '暱稱',
     phone: '聯繫電話',
     email: '郵箱',
     addr: '地址',
-    form: '與 Form 組件組合'
+    form: '與 Form 元件組合'
   },
   exampleDemo: {
     title: '標題',
@@ -600,10 +600,10 @@ export default {
     superiorDepartment: '上級部門'
   },
   menu: {
-    menuName: '菜單名稱',
-    icon: '圖標',
+    menuName: '選單名稱',
+    icon: '圖示',
     permission: '權限標識',
-    component: '組件',
+    component: '元件',
     path: '路徑',
     status: '狀態',
     hidden: '是否隱藏',
@@ -612,17 +612,17 @@ export default {
     breadcrumb: '是否顯示麪包屑',
     affix: '是否固定在標籤頁',
     noTagsView: '是否隱藏標籤頁',
-    activeMenu: '高亮菜單',
+    activeMenu: '醒目選單',
     canTo: '是否可跳轉',
-    name: '組件名稱'
+    name: '元件名稱'
   },
   role: {
     roleName: '角色名稱',
     role: '角色',
-    menu: '菜單分配'
+    menu: '選單分配'
   },
   inputPasswordDemo: {
     title: '密碼輸入框',
-    inputPasswordDes: '基於 ElementPlus 的 Input 組件二次封裝'
+    inputPasswordDes: '基於 ElementPlus 的 Input 元件二次封裝'
   }
 }

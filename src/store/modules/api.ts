@@ -20,6 +20,7 @@ import type {
   deletePlanRequest,
   deleteRoomTypeRequest,
   getExtrasItemsRequest,
+  getMenusRequest,
   getPlanRequest,
   getPlansRequest,
   getRoomTypeRequest,
@@ -420,6 +421,19 @@ export const useApiStore = defineStore('api_store', () => {
       })
   }
 
+  // get menus list
+  const getMenus = async (data: getMenusRequest): Promise<AxiosResponse> => {
+    return await request
+      .get({
+        url: '/getMenus',
+        params: data
+      })
+      .catch((err) => {
+        showErrorMessage(err)
+        throw err
+      })
+  }
+
   return {
     showErrorMessage,
     updateEnableExtrasValue,
@@ -447,6 +461,7 @@ export const useApiStore = defineStore('api_store', () => {
     updatePlan,
     createPlan,
     deletePlan,
-    updatePlanStatus
+    updatePlanStatus,
+    getMenus
   }
 })

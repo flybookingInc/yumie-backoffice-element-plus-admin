@@ -164,3 +164,8 @@ export interface updatePlanStatusRequest {
   planId: string
   enabled: boolean
 }
+
+// get menus
+export interface getMenusRequest {
+  hotelId: string
+}
